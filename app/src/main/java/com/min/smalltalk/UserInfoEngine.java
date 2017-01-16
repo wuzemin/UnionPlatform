@@ -3,7 +3,7 @@ package com.min.smalltalk;
 import android.content.Context;
 import android.net.Uri;
 
-import com.min.smalltalk.Exception.HttpException;
+import com.min.smalltalk.exception.HttpException;
 import com.min.smalltalk.bean.GetUserInfoByIdResponse;
 import com.min.smalltalk.listener.OnDataListener;
 import com.min.smalltalk.network.async.AsyncTaskManager;

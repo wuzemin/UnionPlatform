@@ -15,11 +15,13 @@
         android:text="推荐信息"/>
 
     <EditText
+        android:id="@+id/et_recommend_phone"
         android:hint="@string/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
-        android:hint="@string/nickname"
+        android:id="@+id/et_recommend_name"
+        android:hint="@string/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

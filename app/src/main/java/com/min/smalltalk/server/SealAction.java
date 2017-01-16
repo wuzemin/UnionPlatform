@@ -3,7 +3,7 @@ package com.min.smalltalk.server;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.min.smalltalk.Exception.HttpException;
+import com.min.smalltalk.exception.HttpException;
 import com.min.smalltalk.bean.GetUserInfoByIdResponse;
 import com.min.smalltalk.constant.Const;
 

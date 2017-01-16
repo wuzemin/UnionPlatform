@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.min.smalltalk.Exception.HttpException;
+import com.min.smalltalk.exception.HttpException;
 import com.min.smalltalk.listener.OnDataListener;
 
 import io.rong.eventbus.EventBus;

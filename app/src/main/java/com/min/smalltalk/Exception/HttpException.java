@@ -1,4 +1,4 @@
-package com.min.smalltalk.Exception;
+package com.min.smalltalk.exception;
 
 /**
  * Created by Min on 2016/12/13.

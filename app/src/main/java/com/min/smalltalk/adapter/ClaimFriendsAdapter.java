@@ -2,28 +2,26 @@ package com.min.smalltalk.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.min.smalltalk.R;
 import com.min.smalltalk.bean.ClaimFriends;
-import com.min.smalltalk.network.HttpUtils;
-import com.min.smalltalk.wedget.image.CircleImageView;
+import com.min.smalltalk.wedget.image.SelectableRoundedImageView;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import io.rong.imageloader.core.ImageLoader;
 
 /**
  * Created by Min on 2017/1/5.
  */
 
-public class ClaimFriendsAdapter extends BaseAdapter {
+public class ClaimFriendsAdapter extends RecyclerView.Adapter<ClaimFriendsAdapter.MyViewHolder> implements View.OnClickListener {
     private Context context;
-    private List<ClaimFriends> list;
+    private List<ClaimFriends> list = new ArrayList<>();
 
 
     public ClaimFriendsAdapter(Context context,List<ClaimFriends> list) {
@@ -32,6 +30,66 @@ public class ClaimFriendsAdapter extends BaseAdapter {
     }
 
     @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_group,parent,false);
+        MyViewHolder holder = new MyViewHolder(view);
+        view.setOnClickListener(this);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        holder.siv_Claim_head.setImageResource(R.mipmap.ic_launcher);
+        holder.tv_Claim_name.setText(list.get(position).getFull_name());
+        int status=list.get(position).getCheck_claim();
+        if(status==1){
+            holder.tv_Claim_status.setTextColor(Color.GRAY);
+            holder.tv_Claim_status.setText("已认领");
+        }else {
+            holder.tv_Claim_status.setTextColor(Color.BLUE);
+            holder.tv_Claim_status.setText("未认领");
+        }
+        holder.itemView.setTag(list.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+
+    class MyViewHolder extends RecyclerView.ViewHolder{
+        SelectableRoundedImageView siv_Claim_head;
+        TextView tv_Claim_name;
+        TextView tv_Claim_status;
+
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            siv_Claim_head = (SelectableRoundedImageView) itemView.findViewById(R.id.siv_group_head);
+            tv_Claim_name = (TextView) itemView.findViewById(R.id.tv_group_name);
+            tv_Claim_status = (TextView) itemView.findViewById(R.id.tv_role);
+        }
+    }
+
+    private ClaimFriendsAdapter.OnRecyclerViewItemClickListener mOnItemClickListener = null;
+
+    public interface OnRecyclerViewItemClickListener {
+        void onItemClick(View view , ClaimFriends claimFriends);
+    }
+    public void setOnItemClickListener(ClaimFriendsAdapter.OnRecyclerViewItemClickListener listener) {
+        this.mOnItemClickListener = listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (mOnItemClickListener != null) {
+            //注意这里使用getTag方法获取数据
+            mOnItemClickListener.onItemClick(view,(ClaimFriends) view.getTag());
+        }
+    }
+
+    /*@Override
     public int getCount() {
         return list.size();
     }
@@ -103,5 +161,5 @@ public class ClaimFriendsAdapter extends BaseAdapter {
     public interface OnItemButtonClick {
         boolean onButtonClaimClick(int position, View view, int status);
 
-    }
+    }*/
 }

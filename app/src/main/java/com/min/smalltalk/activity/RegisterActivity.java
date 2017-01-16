@@ -57,6 +57,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     ClearWriteEditText etPassword;
     @BindView(R.id.btn_register)
     Button btnRegister;
+    @BindView(R.id.et_recommend_code)
+    ClearWriteEditText etRecommendCode;
     /*@BindView(R.id.et_answer)
     ClearWriteEditText etAnswer;
     @BindView(R.id.et_question)
@@ -66,6 +68,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private String iCord;
     private String nickname;
     private String password;
+    private String recommendCode;
     private String question;
     private String answer;
     private int time = 60;
@@ -139,7 +142,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 phone = etPhone.getText().toString().trim();
                 if (!TextUtils.isEmpty(phone)) {
                     if (phone.length() == 11) {
-                        LoadDialog.show(mContext,"正在请求服务器中...");
+                        LoadDialog.show(mContext, "正在请求服务器中...");
                         SMSSDK.getVerificationCode("86", phone);
                         etCode.requestFocus();
                         btnGetCord.setVisibility(View.GONE);
@@ -157,6 +160,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 password = etPassword.getText().toString();
                 phone = etPhone.getText().toString();
                 iCord = etCode.getText().toString().trim();
+                recommendCode = etRecommendCode.getText().toString();
                 /*question = etQuestion.getText().toString();
                 answer = etAnswer.getText().toString();*/
                 if (TextUtils.isEmpty(nickname)) {
@@ -171,14 +175,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     T.showShort(mContext, "密码不能为空且长度不能小于4");
                     return;
                 }
-                /*if(TextUtils.isEmpty(question)){
-                    T.showShort(mContext,"认领问题不能为空");
+                if(TextUtils.isEmpty(recommendCode)){
+                    T.showShort(mContext,"推荐id不能为空");
                     return;
                 }
-                if(TextUtils.isEmpty(answer)){
-                    T.showShort(mContext,"认领答案不能为空");
-                    return;
-                }*/
                 if (!TextUtils.isEmpty(iCord)) {
                     if (iCord.length() == 4) {
                         SMSSDK.submitVerificationCode("86", phone, iCord);
@@ -202,10 +202,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void initRegister() {
-        HttpUtils.postRegisterRequest("/register", nickname, phone, password, question, answer,  new StringCallback() {
+        HttpUtils.postRegisterRequest("/register", nickname, phone, password, question, answer, new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                T.showShort(mContext, "/register---"+e);
+                T.showShort(mContext, "/register---" + e);
                 LoadDialog.dismiss(mContext);
                 return;
             }
@@ -217,7 +217,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 }.getType();
                 Code<Integer> code = gson.fromJson(response, type);
                 int code1 = code.getCode();
-                switch (code1){
+                switch (code1) {
                     case 200:
                         T.showShort(mContext, "注册成功");
                         Intent intent = new Intent(mContext, LoginActivity.class);
@@ -233,7 +233,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         break;
                     case 1000:
                         LoadDialog.dismiss(mContext);
-                        T.showShort(mContext, "数据库插入失败或连接融云失败");
+                        T.showShort(mContext, "推荐信息不一致，请检查推荐信息");
                         break;
                     default:
                         break;

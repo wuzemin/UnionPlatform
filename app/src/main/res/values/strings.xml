@@ -92,4 +92,5 @@
     </string-array>
 
     <string name="recommend">推荐</string>
+    <string name="recommend_code">推荐id</string>
 </resources>

@@ -10,7 +10,7 @@ import com.facebook.stetho.Stetho;
 import com.facebook.stetho.dumpapp.DumperPlugin;
 import com.facebook.stetho.inspector.database.DefaultDatabaseConnectionProvider;
 import com.facebook.stetho.inspector.protocol.ChromeDevtoolsDomain;
-import com.min.smalltalk.Exception.CrashHandler;
+import com.min.smalltalk.exception.CrashHandler;
 import com.min.smalltalk.constant.Const;
 import com.min.smalltalk.db.FriendInfoDAOImpl;
 import com.min.smalltalk.db.GroupMemberDAOImpl;

@@ -1,6 +1,6 @@
 package com.min.smalltalk.listener;
 
-import com.min.smalltalk.Exception.HttpException;
+import com.min.smalltalk.exception.HttpException;
 
 /**
  * Created by Min on 2016/12/13.

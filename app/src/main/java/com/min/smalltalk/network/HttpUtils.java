@@ -365,5 +365,15 @@ public class HttpUtils {
                 .build().execute(callback);
     }
 
+    //推荐好友
+    public static void postRecommend(String url,String userId,String full_name, String mobile,StringCallback callback){
+        OkHttpUtils.post().url(BASE_RUL+url)
+                .addHeader("Connection", "close")
+                .addParams("userId",userId)
+                .addParams("full_name",full_name)
+                .addParams("mobile",mobile)
+                .build().execute(callback);
+    }
+
 
 }
