@@ -3,6 +3,7 @@ package com.min.smalltalk.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.min.smalltalk.bean.ClaimFriends;
 import com.min.smalltalk.bean.Code;
 import com.min.smalltalk.constant.Const;
 import com.min.smalltalk.network.HttpUtils;
+import com.min.smalltalk.wedget.ItemDivider;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.lang.reflect.Type;
@@ -45,7 +47,7 @@ public class ClaimFriendsActivity extends BaseActivity implements SwipeRefreshLa
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    private List<ClaimFriends> list;
+    private List<ClaimFriends> list = new ArrayList<ClaimFriends>();;
     private ClaimFriendsAdapter adapter;
 
     private String userId;
@@ -80,7 +82,6 @@ public class ClaimFriendsActivity extends BaseActivity implements SwipeRefreshLa
                 Code<List<ClaimFriends>> code = gson.fromJson(response, type);
                 L.e("---------end", "");
                 if (code.getCode() == 200) {
-                    list = new ArrayList<ClaimFriends>();
                     list = code.getMsg();
                     LoadDialog.dismiss(mContext);
                 } else {
@@ -95,6 +96,9 @@ public class ClaimFriendsActivity extends BaseActivity implements SwipeRefreshLa
     private void initAdapter() {
         adapter = new ClaimFriendsAdapter(mContext, list);
         recyclerView.setAdapter(adapter);
+        LinearLayoutManager lm = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(lm);
+        recyclerView.addItemDecoration(new ItemDivider(this, ItemDivider.VERTICAL_LIST));
         adapter.setOnItemClickListener(new ClaimFriendsAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, ClaimFriends claimFriends) {
@@ -103,7 +107,9 @@ public class ClaimFriendsActivity extends BaseActivity implements SwipeRefreshLa
                     T.showShort(mContext,"已认领");
                     return;
                 }
-                startActivity(new Intent(mContext,ClaimQuestionActivity.class));
+                Intent intent = new Intent(mContext,ClaimQuestionActivity.class);
+                intent.putExtra("friends_userId",claimFriends.getId());
+                startActivity(intent);
             }
         });
     }

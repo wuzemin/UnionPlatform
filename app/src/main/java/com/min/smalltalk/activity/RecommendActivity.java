@@ -1,9 +1,11 @@
 package com.min.smalltalk.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +41,8 @@ public class RecommendActivity extends BaseActivity {
     EditText etRecommendPhone;
     @BindView(R.id.et_recommend_name)
     EditText etRecommendName;
+    @BindView(R.id.btn_recommend)
+    Button btnRecommend;
 
     private SharedPreferences sp;
     private String userId;
@@ -56,52 +60,60 @@ public class RecommendActivity extends BaseActivity {
     }
 
     private void initView() {
-        tvTitle.setText("分享");
         tvTitleRight.setVisibility(View.VISIBLE);
-        tvTitleRight.setText("分享");
+        tvTitleRight.setText("推荐列表");
         userId = sp.getString(Const.LOGIN_ID, "");
     }
 
 
-    @OnClick({R.id.iv_title_back, R.id.tv_title_right})
+    @OnClick({R.id.iv_title_back, R.id.tv_title_right,R.id.btn_recommend})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_title_back:
                 finish();
                 break;
             case R.id.tv_title_right:
-                full_name = etRecommendPhone.getText().toString();
+                startActivity(new Intent(mContext, RecommendListActivity.class));
+                break;
+            case R.id.btn_recommend:
+                full_name = etRecommendName.getText().toString();
                 mobile = etRecommendPhone.getText().toString();
                 if (TextUtils.isEmpty(full_name) || TextUtils.isEmpty(mobile)) {
                     T.showShort(mContext, "姓名或手机号不能为空");
                     return;
                 }
-                HttpUtils.postRecommend("/frends_recommend", userId, full_name, mobile, new StringCallback() {
+                HttpUtils.postRecommend("/friends_recommend", userId, full_name, mobile, new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        T.showShort(mContext,"onError----"+e);
+                        T.showShort(mContext, "onError----" + e);
+                        return;
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         Gson gson = new Gson();
-                        Type type=new TypeToken<Code<String>>(){}.getType();
-                        Code<String> code = gson.fromJson(response,type);
-                        switch (code.getCode()){
+                        Type type = new TypeToken<Code<String>>() {
+                        }.getType();
+                        Code<String> code = gson.fromJson(response, type);
+                        switch (code.getCode()) {
                             case 200:
                                 reCommendCode = code.getMsg();
                                 showShare();
                                 break;
                             case 0:
-                                T.showShort(mContext,"推荐失败");
+                                T.showShort(mContext, "推荐失败");
                                 break;
                             case 100:
-                                T.showShort(mContext,"账号已存在");
+                                T.showShort(mContext, "账号已存在");
+                                break;
+                            case 300:
+                                T.showShort(mContext, "账号已推荐");
                                 break;
                         }
                     }
                 });
-                showShare();
+                break;
+            default:
                 break;
         }
     }
@@ -117,7 +129,7 @@ public class RecommendActivity extends BaseActivity {
         // titleUrl是标题的网络链接，QQ和QQ空间等使用
         oks.setTitleUrl("https://www.bjike.com");
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("推荐id："+reCommendCode);
+        oks.setText("推荐id：" + reCommendCode);
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
         //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
         // url仅在微信（包括好友和朋友圈）中使用
@@ -130,8 +142,8 @@ public class RecommendActivity extends BaseActivity {
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
         oks.setSiteUrl("http://sharesdk.cn");*/
-
 // 启动分享GUI
         oks.show(this);
     }
+
 }

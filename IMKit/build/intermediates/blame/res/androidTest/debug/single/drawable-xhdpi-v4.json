@@ -140,12 +140,12 @@
         "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u1f61e.png"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\rc_ic_bubble_no_right.9.png",
-        "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ic_bubble_no_right.9.png"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\u1f4da.png",
         "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\u1f4da.png"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\rc_ic_bubble_no_right.9.png",
+        "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\rc_ic_bubble_no_right.9.png"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\rc_pb_file_download_progress_progress.9.png",

@@ -179,7 +179,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     T.showShort(mContext,"推荐id不能为空");
                     return;
                 }
-                if (!TextUtils.isEmpty(iCord)) {
+                /*if (!TextUtils.isEmpty(iCord)) {
                     if (iCord.length() == 4) {
                         SMSSDK.submitVerificationCode("86", phone, iCord);
                         flag = false;
@@ -192,7 +192,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     T.showShort(mContext, "请输入验证码");
                     etCode.requestFocus();
                     return;
-                }
+                }*/
                 LoadDialog.show(mContext);
                 initRegister();
                 break;
@@ -202,7 +202,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void initRegister() {
-        HttpUtils.postRegisterRequest("/register", nickname, phone, password, question, answer, new StringCallback() {
+        HttpUtils.postRegisterRequest("/register", nickname, phone, password, recommendCode,new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
                 T.showShort(mContext, "/register---" + e);

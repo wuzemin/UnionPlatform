@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context="com.min.smalltalk.activity.ClaimQuestionActivity">
 
+    <include layout="@layout/layout_title_top"/>
+
     <EditText
         android:id="@+id/et_name"
         android:hint="他（她）的真实姓名是？"
@@ -18,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/btn_claim_user"
         android:text="认领"
         android:textColor="@color/white"
         android:layout_width="match_parent"

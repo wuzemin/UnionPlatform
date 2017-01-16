@@ -344,12 +344,12 @@
         "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\rc_ext_location_marker.png"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\rc_ic_location_normal.png",
-        "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\rc_ic_location_normal.png"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\u1f384.png",
         "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\u1f384.png"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\rc_ic_location_normal.png",
+        "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\rc_ic_location_normal.png"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\rc_ic_star_hover.png",
@@ -616,12 +616,12 @@
         "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\rc_rt_loc_myself.png"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\u1f64f.png",
-        "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\u1f64f.png"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\rc_select_check_sel.png",
         "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\rc_select_check_sel.png"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\u1f64f.png",
+        "source": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\src\\main\\res\\drawable-xhdpi\\u1f64f.png"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\UnionPlatform\\IMKit\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\u1f607.png",
