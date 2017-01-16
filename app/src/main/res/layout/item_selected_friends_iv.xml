@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.min.smalltalk.wedget.image.SelectableRoundedImageView
+        android:id="@+id/iv_selected_friends"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_margin="2dp"
+        app:sriv_left_bottom_corner_radius="3dip"
+        app:sriv_left_top_corner_radius="3dip"
+        app:sriv_right_bottom_corner_radius="3dip"
+        app:sriv_right_top_corner_radius="3dip" />
+
+</LinearLayout>

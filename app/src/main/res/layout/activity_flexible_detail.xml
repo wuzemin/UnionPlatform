@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title_top"/>
+
+    <RelativeLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.min.smalltalk.wedget.image.SelectableRoundedImageView
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            app:srcCompat="@mipmap/load_image_2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/iv_group_activity_head" />
+
+        <!--活动名-->
+        <TextView
+            android:textColor="@color/black"
+            android:text="@string/group_activity_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_group_activity_head"
+            android:layout_toRightOf="@+id/iv_group_activity_head"
+            android:layout_toEndOf="@+id/iv_group_activity_head"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/activity_name" />
+
+        <!--开始时间-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:text="@string/start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_group_activity_head"
+            android:layout_toEndOf="@+id/iv_group_activity_head"
+            android:layout_below="@+id/activity_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/activity_start_time" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:text="@string/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activity_start_time"
+            android:layout_toEndOf="@+id/activity_start_time"
+            android:layout_below="@+id/activity_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/tv_activity_start_time" />
+
+        <!--结束时间-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:text="@string/end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_group_activity_head"
+            android:layout_toEndOf="@+id/iv_group_activity_head"
+            android:layout_below="@+id/activity_start_time"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/activity_end_time" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:text="@string/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activity_end_time"
+            android:layout_toEndOf="@+id/activity_end_time"
+            android:layout_below="@+id/activity_start_time"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/tv_activity_end_time" />
+
+        <!--地点-->
+        <TextView
+            android:layout_marginTop="15dp"
+            android:text="@string/activity_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_group_activity_head"
+            android:layout_toEndOf="@+id/iv_group_activity_head"
+            android:layout_below="@+id/tv_activity_end_time"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/activity_place" />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:text="@string/activity_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activity_place"
+            android:layout_toEndOf="@+id/activity_place"
+            android:layout_below="@+id/tv_activity_end_time"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/tv_activity_place" />
+
+        <!--活动简介-->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:text="@string/activity_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_activity_place"
+            android:id="@+id/activity_content" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:text="@string/activity_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_content"
+            android:id="@+id/tv_activity_content" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_below="@+id/tv_activity_content"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:text="参与成员:"
+            android:layout_below="@+id/view"
+            android:id="@+id/member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <!--参与的用户-->
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/member"
+            android:id="@+id/rv_activity_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+    <Button
+        android:textSize="@dimen/font_40"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:background="#0195ff"
+        android:text="@string/join_activity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn_join_activity"/>
+
+</RelativeLayout>

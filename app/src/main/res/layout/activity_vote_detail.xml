@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_vote_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.min.smalltalk.activity.VoteDetailActivity">
+
+    <include layout="@layout/layout_title_top" />
+
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">-->
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_vote_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_40" />
+
+            <TextView
+                android:id="@+id/tv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="" />
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:choiceMode="multipleChoice"
+                android:scrollbarStyle="outsideInset">
+            </ListView>
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:textSize="@dimen/font_40"
+                android:textColor="@color/white"
+                android:text="@string/vote"
+                android:id="@+id/btn_vote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rs_select_btn_red" />
+        </LinearLayout>
+    <!--</ScrollView>-->
+</LinearLayout>

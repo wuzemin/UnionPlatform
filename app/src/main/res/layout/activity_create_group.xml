@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_create_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.min.smalltalk.activity.CreateGroupActivity">
+
+    <include layout="@layout/layout_title_top"/>
+
+    <io.rong.imkit.widget.AsyncImageView
+        android:id="@+id/img_Group_portrait"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/add_group_head" />
+    <EditText
+        android:hint="群组名称（2~10字）"
+        android:id="@+id/et_group_name"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_create_group"
+        style="@style/text_style"
+        android:text="@string/enter"
+        android:background="@color/blue3"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

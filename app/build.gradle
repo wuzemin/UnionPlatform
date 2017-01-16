@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.min.smalltalk"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+   signingConfigs {
+       //调试版的keystore
+       debug {
+           storeFile file("android.jks")
+           storePassword "ike123"
+           keyAlias "android.keystore"
+           keyPassword "ike123"
+       }
+   }
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+    dexOptions{
+        javaMaxHeapSize "2g"
+    }
+         /*//发布版的keystore
+        *//*release {
+            storeFile file("keystore文件所用位置")
+            storePassword "你规定的密码"
+            keyAlias "在创建该keystore文件时你所写的alias"
+            keyPassword "你规定的密码"
+        }*//*
+    }*/
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs'  //存放aar文件
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(':IMLib')
+    compile project(':IMKit')
+    compile project(':mylibrary')
+    compile name: 'SMSSDK-2.1.1', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.1', ext: 'aar'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    testCompile 'junit:junit:4.12'
+    compile project(':libzxing')
+    compile 'com.facebook.stetho:stetho:1.4.2'
+    compile 'com.android.support:support-v4:24.2.0'
+
+    compile 'com.android.support:multidex:1.0.1'
+    compile files('libs/ShareSDK-Core-2.8.0.jar')
+    compile files('libs/ShareSDK-Email-2.8.0.jar')
+    compile files('libs/ShareSDK-QQ-2.8.0.jar')
+    compile files('libs/ShareSDK-ShortMessage-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-2.8.0.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.8.0.jar')
+}

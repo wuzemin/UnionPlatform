@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_friend_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.min.smalltalk.activity.NewFriendListActivity">
+
+    <include layout="@layout/layout_title_top"/>
+    <TextView
+        android:id="@+id/isData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_friend"
+        android:textColor="@color/group_list_gray"
+        android:visibility="gone" />
+
+    <!--<android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_new_friends"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>-->
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView">
+    </ListView>
+
+</LinearLayout>

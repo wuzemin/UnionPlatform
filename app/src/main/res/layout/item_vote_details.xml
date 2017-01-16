@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.min.smalltalk.wedget.CheckableLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="8dp"
+    android:id="@+id/ll_contain"
+    android:paddingRight="8dp"
+    android:minHeight="?android:listPreferredItemHeight"
+    android:gravity="center_vertical">
+
+    <TextView android:id="@android:id/text1"
+        android:duplicateParentState="true"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <ImageView
+        android:src="@drawable/ic_hideable_item"
+        android:duplicateParentState="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp" />
+
+</com.min.smalltalk.wedget.CheckableLinearLayout>

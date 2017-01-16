@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/load_image_2"
+    tools:context="com.min.smalltalk.activity.RegisterActivity">
+    <!--注册-->
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"
+        android:textColor="#00ffaa"
+        android:textSize="@dimen/font_40" />
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.min.mylibrary.widget.ClearWriteEditText
+            android:drawablePadding="5dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/nickname"
+            android:id="@+id/et_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="11"
+            android:ems="11"
+            android:inputType="text" />
+
+        <com.min.mylibrary.widget.ClearWriteEditText
+            android:layout_marginBottom="20dp"
+            android:hint="@string/phone"
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="11"
+            android:ems="11"
+            android:inputType="phone"/>
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.min.mylibrary.widget.ClearWriteEditText
+                android:inputType="number"
+                android:hint="@string/code"
+                android:id="@+id/et_code"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:maxLength="4"/>
+            <Button
+                android:textColor="@color/white"
+                android:background="@drawable/rs_select_btn_grey"
+                android:id="@+id/btn_get_cord"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="35dp"
+                android:visibility="visible"
+                android:text="@string/get_code" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_message"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#292929" />
+        </LinearLayout>
+
+        <com.min.mylibrary.widget.ClearWriteEditText
+            android:layout_marginBottom="20dp"
+            android:hint="@string/password"
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="12"
+            android:maxLength="16"
+            android:inputType="textPassword"/>
+        <!--认领问题-->
+        <!--<com.min.mylibrary.widget.ClearWriteEditText
+            android:id="@+id/et_question"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.min.mylibrary.widget.ClearWriteEditText
+            android:id="@+id/et_answer"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rs_select_btn_blue"
+            android:id="@+id/btn_register"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register" />
+    </LinearLayout>
+</LinearLayout>
+
